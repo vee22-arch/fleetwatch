@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
-import { LogOut, ShipWheel } from "lucide-react";
+import { LogOut, Users2 } from "lucide-react"; // Changed ShipWheel to Users2
 import Link from "next/link";
 
 export default function Header() {
@@ -12,8 +12,8 @@ export default function Header() {
     <header className="bg-primary text-primary-foreground shadow-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <ShipWheel className="h-8 w-8" />
-          <h1 className="text-2xl font-bold tracking-tight">FleetWatch</h1>
+          <Users2 className="h-8 w-8" />
+          <h1 className="text-2xl font-bold tracking-tight">Staff Track</h1>
         </Link>
         {user && (
           <div className="flex items-center gap-4">

@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/contexts/AuthContext";
-import { LogIn, ShipWheel, UserCog, User } from "lucide-react";
+import { LogIn, Users2, UserCog, User } from "lucide-react"; // Changed ShipWheel to Users2 for a more general icon
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -36,9 +36,9 @@ export default function UserTypeSelectionPage() {
       <Card className="w-full max-w-md shadow-2xl">
         <CardHeader className="text-center">
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground">
-            <ShipWheel className="h-8 w-8" />
+            <Users2 className="h-8 w-8" />
           </div>
-          <CardTitle className="text-3xl font-bold">Welcome to FleetWatch</CardTitle>
+          <CardTitle className="text-3xl font-bold">Welcome to Staff Track</CardTitle>
           <CardDescription className="text-lg text-muted-foreground">
             Please select your login type.
           </CardDescription>
@@ -59,7 +59,7 @@ export default function UserTypeSelectionPage() {
         </CardContent>
       </Card>
       <p className="mt-8 text-center text-sm text-muted-foreground">
-        &copy; {new Date().getFullYear()} FleetWatch. All rights reserved.
+        &copy; {new Date().getFullYear()} Staff Track. All rights reserved.
       </p>
     </div>
   );

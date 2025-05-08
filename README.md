@@ -1,4 +1,4 @@
-# Firebase Studio
+# Staff Track
 
 This is a NextJS starter in Firebase Studio.
 

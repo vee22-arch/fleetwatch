@@ -14,6 +14,8 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+const USER_STORAGE_KEY = 'stafftrack_user';
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,13 +24,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Try to load user from localStorage on initial load
     try {
-      const storedUser = localStorage.getItem('fleetwatch_user');
+      const storedUser = localStorage.getItem(USER_STORAGE_KEY);
       if (storedUser) {
         setUser(JSON.parse(storedUser));
       }
     } catch (error) {
       console.error("Failed to parse user from localStorage", error);
-      localStorage.removeItem('fleetwatch_user');
+      localStorage.removeItem(USER_STORAGE_KEY);
     }
     setIsLoading(false);
   }, []);
@@ -36,7 +38,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = (username: string, role: UserRole) => {
     const newUser: User = { id: role === 'admin' ? 'admin_user' : `staff_${username}`, username, role };
     setUser(newUser);
-    localStorage.setItem('fleetwatch_user', JSON.stringify(newUser));
+    localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newUser));
     if (role === 'admin') {
       router.push('/admin/dashboard');
     } else {
@@ -46,7 +48,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('fleetwatch_user');
+    localStorage.removeItem(USER_STORAGE_KEY);
     router.push('/');
   };
 

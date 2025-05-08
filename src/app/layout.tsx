@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'FleetWatch',
-  description: 'Real-time GPS tracking and communication for fleets.',
+  title: 'Staff Track',
+  description: 'Real-time GPS tracking and communication for staff.',
 };
 
 export default function RootLayout({

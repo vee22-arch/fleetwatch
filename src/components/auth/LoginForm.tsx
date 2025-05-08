@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
 import type { UserRole } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { KeyRound, LogIn, User as UserIcon, ShipWheel } from "lucide-react";
+import { KeyRound, LogIn, User as UserIcon, Users2 } from "lucide-react"; // Changed ShipWheel to Users2
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -41,14 +41,18 @@ export default function LoginForm({ role, title, description }: LoginFormProps) 
     login(values.username, role);
   }
 
+  // Update description if it contains the old app name
+  const updatedDescription = description.replace(/FleetWatch/g, "Staff Track");
+
+
   return (
     <Card className="w-full max-w-md shadow-xl">
       <CardHeader className="text-center">
         <Link href="/" className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
-            <ShipWheel className="h-7 w-7" />
+            <Users2 className="h-7 w-7" />
         </Link>
         <CardTitle className="text-2xl font-semibold">{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription>{updatedDescription}</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
