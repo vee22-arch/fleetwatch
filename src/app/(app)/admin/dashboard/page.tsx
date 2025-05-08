@@ -8,7 +8,7 @@ import { mockCrewMembers, mockMessages, addMockMessage } from "@/lib/mockData";
 import type { CrewMember, Message, User } from "@/types";
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Users, X } from "lucide-react";
+import { MessageSquare, Users, X, MapPin } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 
